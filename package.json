@@ -23,6 +23,7 @@
     "sass": "^1.52.2",
     "simple-react-validator": "^1.6.1",
     "slick-carousel": "^1.8.1",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "web3": "^1.8.2"
   }
 }
