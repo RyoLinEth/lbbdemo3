@@ -11,11 +11,20 @@ export default function Navbar(props) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleDefaultAccount = (value) => {
+    props.defaultAccountChange(value)
+  }
+  
   const className = scroll > 80 ? "fixed-navbar active" : "fixed-navbar";
 
   return (
     <div className={className}>
-        <Header hclass={props.hclass} Logo={props.Logo} topbarNone={props.topbarNone} />
+      <Header
+        hclass={props.hclass}
+        Logo={props.Logo}
+        topbarNone={props.topbarNone}
+        defaultAccountChange={handleDefaultAccount}
+      />
     </div>
-  ); 
+  );
 }
