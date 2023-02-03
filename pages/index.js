@@ -60,10 +60,10 @@ export default function Home() {
           <Hero />
           <About
             defaultAccount={defaultAccount}
-            // contract={contract}
-            // usdtContract={usdtContract}
-            // provider={provider}
-            // signer={signer}
+            contract={contract}
+            usdtContract={usdtContract}
+            provider={provider}
+            signer={signer}
           />
           <ServiceSection />
           <ExprienceSec defaultAccount={defaultAccount} />
