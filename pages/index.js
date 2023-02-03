@@ -12,47 +12,47 @@ import ServiceSection from '../components/ServiceSection/ServiceSection';
 
 import usdtABI from '../components/abi/usdtABI.json'
 import contractABI from '../components/abi/idoABI.json'
-import Web3 from 'web3';
-import { ethers } from 'ethers'
+// import Web3 from 'web3';
+// import { ethers } from 'ethers'
 
-let OKCMainnetProvider = 'https://exchainrpc.okex.org/';
-let BSCMainnetProvider = 'https://bsc-dataseed.binance.org/';
-let web3 = new Web3(new Web3.providers.HttpProvider(OKCMainnetProvider));
+// let OKCMainnetProvider = 'https://exchainrpc.okex.org/';
+// let BSCMainnetProvider = 'https://bsc-dataseed.binance.org/';
+// let web3 = new Web3(new Web3.providers.HttpProvider(OKCMainnetProvider));
 
-const usdtAddress = "0xD0f618C6C2914d8bf3BECE8372B1FA75758aBE99";
-const contractAddress = "0xbd5CABaecDD059039C053f0F551d1151FF857e2B";
+// const usdtAddress = "0xD0f618C6C2914d8bf3BECE8372B1FA75758aBE99";
+// const contractAddress = "0xbd5CABaecDD059039C053f0F551d1151FF857e2B";
 
 export default function Home() {
   const [defaultAccount, setDefaultAccount] = useState(null);
 
-  const [provider, setProvider] = useState(null);
-  const [signer, setSigner] = useState(null);
-  const [contract, setContract] = useState(null);
-  const [usdtContract, setUsdtContract] = useState(null);
+  // const [provider, setProvider] = useState(null);
+  // const [signer, setSigner] = useState(null);
+  // const [contract, setContract] = useState(null);
+  // const [usdtContract, setUsdtContract] = useState(null);
 
   const handleDefaultAccount = (value) => {
     setDefaultAccount(value);
   }
 
-  const updateEthers = async () => {
-    let tempProvider = new ethers.providers.Web3Provider(window.ethereum);
-    setProvider(tempProvider);
+  // const updateEthers = async () => {
+  //   let tempProvider = new ethers.providers.Web3Provider(window.ethereum);
+  //   setProvider(tempProvider);
 
-    let tempSigner = tempProvider.getSigner();
-    setSigner(tempSigner);
+  //   let tempSigner = tempProvider.getSigner();
+  //   setSigner(tempSigner);
 
-    let tempContract = new ethers.Contract(contractAddress, contractABI, tempSigner)
-    setContract(tempContract);
+  //   let tempContract = new ethers.Contract(contractAddress, contractABI, tempSigner)
+  //   setContract(tempContract);
 
-    let tempUSDTContract = new ethers.Contract(usdtAddress, usdtABI, tempSigner)
-    setUsdtContract(tempUSDTContract);
-  }
+  //   let tempUSDTContract = new ethers.Contract(usdtAddress, usdtABI, tempSigner)
+  //   setUsdtContract(tempUSDTContract);
+  // }
 
-  useEffect(() => {
-    console.log("Change Account to : " + defaultAccount)
-    if (defaultAccount !== null)
-      updateEthers()
-  }, [defaultAccount])
+  // useEffect(() => {
+  //   console.log("Change Account to : " + defaultAccount)
+  //   if (defaultAccount !== null)
+  //     updateEthers()
+  // }, [defaultAccount])
 
   return (
     <div id='scrool'>
@@ -65,19 +65,19 @@ export default function Home() {
           <Hero />
           <About
             defaultAccount={defaultAccount}
-            contract={contract}
-            usdtContract={usdtContract}
-            provider={provider}
-            signer={signer}
+            // contract={contract}
+            // usdtContract={usdtContract}
+            // provider={provider}
+            // signer={signer}
           />
           <ServiceSection />
           <ExprienceSec defaultAccount={defaultAccount} />
           <ProjectSection
             defaultAccount={defaultAccount}
-            contract={contract}
-            usdtContract={usdtContract}
-            provider={provider}
-            signer={signer} 
+            // contract={contract}
+            // usdtContract={usdtContract}
+            // provider={provider}
+            // signer={signer} 
           />
           <Footer />
           <Scrollbar />
