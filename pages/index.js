@@ -12,8 +12,8 @@ import ServiceSection from '../components/ServiceSection/ServiceSection';
 
 import usdtABI from '../components/abi/usdtABI.json'
 import contractABI from '../components/abi/idoABI.json'
-// import Web3 from 'web3';
-// import { ethers } from 'ethers'
+import Web3 from 'web3';
+import { ethers } from 'ethers'
 
 // let OKCMainnetProvider = 'https://exchainrpc.okex.org/';
 // let BSCMainnetProvider = 'https://bsc-dataseed.binance.org/';
