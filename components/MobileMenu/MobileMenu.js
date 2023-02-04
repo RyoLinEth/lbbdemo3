@@ -40,7 +40,7 @@ const MobileMenu = () => {
                         <Link activeClass="active" to="experience" spy={true} smooth={true} duration={500}>邀請連結</Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500} onClick={ClickHandler}>領幣</Link>
+                        <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500} >領幣</Link>
                     </li>
                 </ul>
 
