@@ -8,11 +8,6 @@
 			},
 			{
 				"internalType": "address",
-				"name": "_IDOController",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
 				"name": "_USDTReceiver",
 				"type": "address"
 			}
@@ -136,19 +131,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "IDOController",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "USDTReceiver",
 		"outputs": [
 			{
@@ -161,7 +143,13 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "claimStatus",
+				"type": "bool"
+			}
+		],
 		"name": "claimFlip",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -255,7 +243,13 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "idoStatus",
+				"type": "bool"
+			}
+		],
 		"name": "idoFlip",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -444,19 +438,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_newOwner",
-				"type": "address"
-			}
-		],
-		"name": "setIDOController",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

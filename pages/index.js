@@ -14,8 +14,8 @@ import usdtABI from '../components/abi/usdtABI.json'
 import contractABI from '../components/abi/idoABI.json'
 import { ethers } from 'ethers'
 
-const usdtAddress = "0xD0f618C6C2914d8bf3BECE8372B1FA75758aBE99";
-const contractAddress = "0x34293810553fEeb9B13963e5E1A0369E2110a3B3";
+const usdtAddress = "0x55d398326f99059fF775485246999027B3197955";
+const contractAddress = "0x6C370706730E39AFbd2cFb374aFBf7D516F90B9f";
 
 export default function Home() {
   const [defaultAccount, setDefaultAccount] = useState(null);
