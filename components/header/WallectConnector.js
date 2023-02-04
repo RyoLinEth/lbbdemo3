@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 const WalletConnect = ({ defaultAccountChange, isCorrectNetwork }) => {
     const [defaultAccount, setDefaultAccount] = useState(null)
     const [correctNetwork, setCorrectNetwork] = useState(null);
-    const [connectButtonText, setConnectButtonText] = useState("連接錢包")
+    const [connectButtonText, setConnectButtonText] = useState("连接钱包")
 
     useEffect(() => {
         changingAccount();

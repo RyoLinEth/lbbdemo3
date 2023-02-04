@@ -13,16 +13,16 @@ const Hero = () => {
                                 <div className="wpo-static-hero-inner">
                                     <div data-swiper-parallax="300" className="slide-title">
                                         <h2><span>您好,</span>
-                                            歡迎來到LBB</h2>
+                                        欢迎来到LBB</h2>
                                     </div>
                                     <div data-swiper-parallax="300" className="slide-sub-title">
                                         <h5>IDO</h5>
                                     </div>
                                     <div data-swiper-parallax="400" className="slide-text">
-                                        <p>使用 50 / 100 USDT 參加綠寶寶 IDO</p>
+                                        <p>使用 50 / 100 USDT 参加绿宝宝 IDO</p>
                                     </div>
                                     <div className="clearfix"></div>
-                                    <div className="slide-btn"><Link className="theme-btn" to="about" spy={true} smooth={true}  duration={500}>現在參加</Link></div>
+                                    <div className="slide-btn"><Link className="theme-btn" to="about" spy={true} smooth={true}  duration={500}>现在参加</Link></div>
                                 </div>
                             </div>
                         </div>

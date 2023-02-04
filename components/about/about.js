@@ -84,13 +84,13 @@ const About = (props) => {
             );
 
             if (!result) {
-                swal("錯誤", "認購失敗", "error");
+                swal("错误", "认购失败", "error");
             } else {
                 setIsJoined(true);
                 if (value === 50)
-                    swal("成功", "成功認購 50 USDT", "success");
+                    swal("成功", "成功认购 50 USDT", "success");
                 if (value === 100)
-                    swal("成功", "成功認購 100 USDT", "success");
+                    swal("成功", "成功认购 100 USDT", "success");
             }
         } catch (err) {
             console.log(err)
@@ -100,26 +100,26 @@ const About = (props) => {
 
     const joinIDO = async (value) => {
         if (props.isCorrectNetwork === false) {
-            swal("錯誤", "請連結到正確網路 並重新整理頁面", "error");
+            swal("错误", "请连结到正确网路 并重新整理页面", "error");
             return;
         }
 
         if (props.defaultAccount === null) {
-            swal("錯誤", "請先連結錢包", "error");
+            swal("错误", "请先连结钱包", "error");
             return;
         }
         if (isIDOActive === false) {
-            swal("錯誤", "IDO 未開啟", "error");
+            swal("错误", "IDO 未开启", "error");
             return;
         }
         if (isJoined === true) {
-            swal("錯誤", "您已參加過IDO", "error");
+            swal("错误", "您已参加过IDO", "error");
             return;
         }
         let balance = await checkBalance()
 
         if (value > balance) {
-            swal("錯誤", "您沒有足夠的USDT", "error");
+            swal("错误", "您没有足够的USDT", "error");
             return;
         }
 
@@ -139,7 +139,7 @@ const About = (props) => {
                 if (result2)
                     checkAllowanceAgain(value);
             } catch {
-                swal("錯誤", "授權USDT失敗", "error");
+                swal("错误", "授权USDT失败", "error");
             }
     }
 
@@ -176,21 +176,21 @@ const About = (props) => {
                         <div className="wpo-about-exprience-wrap">
                             <div className="wpo-about-exprience">
                                 <h2>IDO</h2>
-                                <span>參與IDO</span>
+                                <span>参与IDO</span>
                             </div>
                             <div className="client">
                                 <h3><span data-count="100">100</span>%</h3>
-                                <p>智能合約<br />自動執行</p>
+                                <p>智能合约<br />三代返佣</p>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6 offset-lg-1 col-md-12 col-sm-12">
                         <div className="wpo-about-content">
                             <div className="wpo-about-title">
-                                <h2>LBB - 三代返傭</h2><br />
+                                <h2>LBB - 三代返佣</h2><br />
                             </div>
 
-                            <h5>三代IDO USDT實時返傭</h5>
+                            <h5>三代IDO USDT实时返佣</h5>
                             <div className="wpo-about-funfact">
                                 <div style={{ display: "flex", flexDirection: "row" }}>
                                     <div className="grid">
@@ -214,7 +214,7 @@ const About = (props) => {
                                 </div>
                             </div>
 
-                            <h5>IDO額度 50 / 100 USDT</h5>
+                            <h5>IDO额度 50 / 100 USDT</h5>
                             <div className="wpo-about-funfact">
                                 <div className="grid" style={{ cursor: "pointer" }}>
                                     <div className="grid-inner" onClick={() => joinIDO(50)}>
@@ -229,7 +229,7 @@ const About = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <h5 style={{ color: 'red' }}>** 點擊上方按鈕直接參加IDO **</h5>
+                            <h5 style={{ color: 'red' }}>** 点击上方按钮直接参加IDO **</h5>
                         </div>
                     </div>
                 </div>

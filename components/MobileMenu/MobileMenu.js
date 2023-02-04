@@ -35,12 +35,12 @@ const MobileMenu = () => {
                     <li>
                         <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>IDO</Link>
                     </li>
-                    <li><Link activeClass="active" to="service" spy={true} smooth={true} duration={500}>關於LBB</Link></li>
+                    <li><Link activeClass="active" to="service" spy={true} smooth={true} duration={500}>关于LBB</Link></li>
                     <li>
-                        <Link activeClass="active" to="experience" spy={true} smooth={true} duration={500}>邀請連結</Link>
+                        <Link activeClass="active" to="experience" spy={true} smooth={true} duration={500}>邀请连结</Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500} >領幣</Link>
+                        <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500} >提币</Link>
                     </li>
                 </ul>
 

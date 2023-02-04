@@ -32,7 +32,7 @@ const ServiceSection = (props) => {
     return (
         <div className={`wpo-service-area section-padding ${props.sClass}`} id='service'>
             <div className="container">
-                <SectionTitle Title={'關於 LBB'} />
+                <SectionTitle Title={'关于 LBB'} />
                 <div className="wpo-service-wrap">
                     <Nav tabs>
                         <div style={{display:'flex', flexDirection:'row'}}>
@@ -42,7 +42,7 @@ const ServiceSection = (props) => {
                                     style={{maxWidth:'200px'}}
                                     onClick={() => { toggle('1'); }}
                                 >
-                                    代幣機制
+                                    代币机制
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -51,7 +51,7 @@ const ServiceSection = (props) => {
                                     style={{maxWidth:'200px'}}
                                     onClick={() => { toggle('2'); }}
                                 >
-                                    IDO返傭
+                                    IDO返佣
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -60,7 +60,7 @@ const ServiceSection = (props) => {
                                     style={{maxWidth:'200px'}}
                                     onClick={() => { toggle('3'); }}
                                 >
-                                    IDO內容
+                                    IDO内容
                                 </NavLink>
                             </NavItem>
                         </div>
@@ -77,11 +77,6 @@ const ServiceSection = (props) => {
                                             </div>
                                             <h2>{service.sTitle}</h2>
                                             <p>{service.description}</p>
-                                            {/* <Button
-                                                className="btn"
-                                                onClick={() => handleClickOpen(service)}>
-                                                Learn More
-                                            </Button> */}
                                         </div>
                                     </div>
                                 ))}
@@ -97,11 +92,6 @@ const ServiceSection = (props) => {
                                             </div>
                                             <h2>{service.sTitle}</h2>
                                             <p>{service.description}</p>
-                                            {/* <Button
-                                                className="btn"
-                                                onClick={() => handleClickOpen(service)}>
-                                                Learn More
-                                            </Button> */}
                                         </div>
                                     </div>
                                 ))}
@@ -117,11 +107,6 @@ const ServiceSection = (props) => {
                                             </div>
                                             <h2>{service.sTitle}</h2>
                                             <p>{service.description}</p>
-                                            {/* <Button
-                                                className="btn"
-                                                onClick={() => handleClickOpen(service)}>
-                                                Learn More
-                                            </Button> */}
                                         </div>
                                     </div>
                                 ))}

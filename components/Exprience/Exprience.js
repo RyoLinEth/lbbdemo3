@@ -4,13 +4,13 @@ import swal from 'sweetalert'
 
 const Expriences = [
     {
-        date: '專屬邀請連結',
+        date: '专属邀请连结',
     },
 ]
 
 
 const ExprienceSec = (props) => {
-    const defaultInviteLink = "尚未連接錢包";
+    const defaultInviteLink = "尚未连结钱包";
     const [inviteLink, setInviteLink] = useState(defaultInviteLink);
 
     const generateLink = (value) => {
@@ -21,13 +21,13 @@ const ExprienceSec = (props) => {
     
     const copyLink = () => {
         if (inviteLink === defaultInviteLink) {
-            swal("錯誤", "尚未連結錢包", "error")
+            swal("错误", "尚未连结钱包", "error")
             return;
         }
         navigator.clipboard.writeText(inviteLink).then(() => {
-            swal("成功", `已成功複製連結 ${inviteLink}`, "success")
+            swal("成功", `已成功复制连结 ${inviteLink}`, "success")
         }, (err) => {
-            swal("異常", "複製失敗 請手動複製連結", "error")
+            swal("错误", "复制失败 请手动复制连结", "error")
         })
     }
 
@@ -40,7 +40,7 @@ const ExprienceSec = (props) => {
     return (
         <div className="wpo-work-area section-padding" id="experience">
             <div className="container">
-                <SectionTitle Title={'我的邀請連結'} />
+                <SectionTitle Title={'我的邀请连结'} />
                 <div className="wpo-work-wrap">
                     {Expriences.map((exprience, exp) => (
                         <div className="wpo-work-item" key={exp}>
@@ -48,7 +48,7 @@ const ExprienceSec = (props) => {
                                 <li className="date">{exprience.date}</li>
                                 <li style={{ wordWrap: 'break-word', maxWidth: '80vw' }}>{inviteLink}</li>
                                 <li className="link" onClick={copyLink}>
-                                    <a>複製連結</a>
+                                    <a>复制连结</a>
                                 </li>
                             </ul>
                         </div>

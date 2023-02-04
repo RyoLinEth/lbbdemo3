@@ -6,6 +6,7 @@ const ProjectSection = (props) => {
 
     const [isClaimActive, setIsClaimActive] = useState(true);
     const [isJoined, setIsJoined] = useState(false);
+    const [hasClaimed, setHasClaimed] = useState(false);
 
     useEffect(() => {
         if (props.isCorrectNetwork !== true) return;
@@ -20,10 +21,14 @@ const ProjectSection = (props) => {
             console.log("The address has joined? " + tempJoin)
             setIsJoined(tempJoin);
 
+            let tempHasClaimed = await props.contract.isAddressClaimed(props.defaultAccount);
+            console.log("The address has claimed? " + tempHasClaimed)
+            setHasClaimed(tempHasClaimed);
 
             console.log(`
             isClaimActive : ${tempClaimActive}
             isJoined : ${tempJoin}
+            hasClaimed : ${tempHasClaimed}
             `
             )
         }
@@ -32,28 +37,33 @@ const ProjectSection = (props) => {
 
     const handleClaim = async () => {
         if (props.isCorrectNetwork === false) {
-            swal("錯誤", "請連結到正確網路 並重新整理頁面", "error");
+            swal("错误", "请连结到正确网路 并重新整理页面", "error");
             return;
         }
 
         if (!isClaimActive) {
-            swal("錯誤", "未開放提幣", "error")
+            swal("错误", "未开放提币", "error")
             return;
         }
 
         if (!isJoined) {
-            swal("錯誤", "您並未參加IDO", "error")
+            swal("错误", "您并未参加IDO", "error")
+            return;
+        }
+
+        if (hasClaimed) {
+            swal("错误", "您已经提币", "error")
             return;
         }
 
         if (props.contract === null) {
-            swal("錯誤", "請連接錢包", "error")
+            swal("错误", "请连接钱包", "error")
             return;
         }
 
         props.contract.claimToken({ gasLimit: "1000000" }).then((result) => {
             console.log(result);
-            swal("成功", "已成功提幣", "success")
+            swal("成功", "已成功提币", "success")
         }, (err) => {
             console.log(err);
         })
@@ -67,8 +77,8 @@ const ProjectSection = (props) => {
                     <div className="row align-items-center">
                         <div className="col-lg-4 col-12">
                             <div className="title">
-                                <h2>提幣</h2>
-                                <p>點擊按鈕即可領幣</p>
+                                <h2>提币</h2>
+                                <p>点击按钮即可领币</p>
                             </div>
                         </div>
                         <div className="col-lg-6 offset-lg-2">
