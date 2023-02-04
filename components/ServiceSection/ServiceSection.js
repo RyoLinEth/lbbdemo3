@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
-import { Button } from '@material-ui/core'
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Services from '../../api/service'
 import classnames from 'classnames';
@@ -33,33 +32,39 @@ const ServiceSection = (props) => {
     return (
         <div className={`wpo-service-area section-padding ${props.sClass}`} id='service'>
             <div className="container">
-                <SectionTitle Title={'Popular Services'} />
+                <SectionTitle Title={'關於 LBB'} />
                 <div className="wpo-service-wrap">
                     <Nav tabs>
-                        <NavItem>
-                            <NavLink
-                                className={`${classnames({ active: activeTab === '1' })}`}
-                                onClick={() => { toggle('1'); }}
-                            >
-                                Design
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink
-                                className={`${classnames({ active: activeTab === '2' })}`}
-                                onClick={() => { toggle('2'); }}
-                            >
-                                Development
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink
-                                className={`${classnames({ active: activeTab === '3' })}`}
-                                onClick={() => { toggle('3'); }}
-                            >
-                                Marketing
-                            </NavLink>
-                        </NavItem>
+                        <div style={{display:'flex', flexDirection:'row'}}>
+                            <NavItem>
+                                <NavLink
+                                    className={`${classnames({ active: activeTab === '1' })}`}
+                                    style={{maxWidth:'200px'}}
+                                    onClick={() => { toggle('1'); }}
+                                >
+                                    代幣機制
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink
+                                    className={`${classnames({ active: activeTab === '2' })}`}
+                                    style={{maxWidth:'200px'}}
+                                    onClick={() => { toggle('2'); }}
+                                >
+                                    IDO返傭
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink
+                                    className={`${classnames({ active: activeTab === '3' })}`}
+                                    style={{maxWidth:'200px'}}
+                                    onClick={() => { toggle('3'); }}
+                                >
+                                    IDO內容
+                                </NavLink>
+                            </NavItem>
+                        </div>
+
                     </Nav>
                     <TabContent activeTab={activeTab}>
                         <TabPane tabId="1">
@@ -72,11 +77,11 @@ const ServiceSection = (props) => {
                                             </div>
                                             <h2>{service.sTitle}</h2>
                                             <p>{service.description}</p>
-                                            <Button
+                                            {/* <Button
                                                 className="btn"
                                                 onClick={() => handleClickOpen(service)}>
                                                 Learn More
-                                            </Button>
+                                            </Button> */}
                                         </div>
                                     </div>
                                 ))}
@@ -92,11 +97,11 @@ const ServiceSection = (props) => {
                                             </div>
                                             <h2>{service.sTitle}</h2>
                                             <p>{service.description}</p>
-                                            <Button
+                                            {/* <Button
                                                 className="btn"
                                                 onClick={() => handleClickOpen(service)}>
                                                 Learn More
-                                            </Button>
+                                            </Button> */}
                                         </div>
                                     </div>
                                 ))}
@@ -112,11 +117,11 @@ const ServiceSection = (props) => {
                                             </div>
                                             <h2>{service.sTitle}</h2>
                                             <p>{service.description}</p>
-                                            <Button
+                                            {/* <Button
                                                 className="btn"
                                                 onClick={() => handleClickOpen(service)}>
                                                 Learn More
-                                            </Button>
+                                            </Button> */}
                                         </div>
                                     </div>
                                 ))}
@@ -141,7 +146,7 @@ const ServiceSection = (props) => {
                 </svg>
             </div>
             <ServiceSingle open={open} onClose={handleClose} title={state.sTitle} dImg={state.sImgS} sImg1={state.ssImg1} sImg2={state.ssImg2} />
-        </div>
+        </div >
     );
 }
 

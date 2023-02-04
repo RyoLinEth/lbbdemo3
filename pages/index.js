@@ -15,7 +15,7 @@ import contractABI from '../components/abi/idoABI.json'
 import { ethers } from 'ethers'
 
 const usdtAddress = "0xD0f618C6C2914d8bf3BECE8372B1FA75758aBE99";
-const contractAddress = "0xbd5CABaecDD059039C053f0F551d1151FF857e2B";
+const contractAddress = "0x4b931e3c70528e171430dA62854aa57ab044D60A";
 
 export default function Home() {
   const [defaultAccount, setDefaultAccount] = useState(null);
@@ -69,10 +69,10 @@ export default function Home() {
           <ExprienceSec defaultAccount={defaultAccount} />
           <ProjectSection
             defaultAccount={defaultAccount}
-            // contract={contract}
-            // usdtContract={usdtContract}
-            // provider={provider}
-            // signer={signer} 
+            contract={contract}
+            usdtContract={usdtContract}
+            provider={provider}
+            signer={signer} 
           />
           <Footer />
           <Scrollbar />

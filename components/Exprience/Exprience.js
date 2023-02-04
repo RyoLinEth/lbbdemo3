@@ -1,56 +1,54 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { useState, useEffect } from 'react'
 import SectionTitle from '../SectionTitle/SectionTitle'
+import swal from 'sweetalert'
 
 const Expriences = [
     {
-        date: '2015 - 2016',
-        logo: 'images/work/1.png',
-        position: 'Junior Visual Designer',
-        companyName: 'Trapeza Group, USA.',
-        workFrom: '',
+        date: '專屬邀請連結',
     },
-    {
-        date: '2017 - 2018',
-        logo: 'images/work/2.png',
-        position: 'UI/UX Designer',
-        companyName: 'Gallerie Ontario, Canada',
-        workFrom: '(Remote)',
-    },
-    {
-        date: '2019 - 2020',
-        logo: 'images/work/3.png',
-        position: 'Seinor UI/UX Desinger',
-        companyName: 'Morson Hybrid, Canada',
-        workFrom: '',
-    },
-    {
-        date: '2019 - Present',
-        logo: 'images/work/4.png',
-        position: 'Product Designer',
-        companyName: 'Myant Inc. Etobicoke, ON',
-        workFrom: '(Remote)',
-    },
-
 ]
 
 
 const ExprienceSec = (props) => {
+
+    const defaultInviteLink = "尚未連接錢包";
+    const [inviteLink, setInviteLink] = useState(defaultInviteLink);
+
+    const generateLink = (value) => {
+        let tempLink = window.location.origin + "/?inviter=" + value;
+        setInviteLink(tempLink);
+    }
+
+    const copyLink = () => {
+        if (inviteLink === defaultInviteLink) {
+            swal("錯誤", "尚未連結錢包", "error")
+            return;
+        }
+        navigator.clipboard.writeText(inviteLink).then(() => {
+            swal("成功", `已成功複製連結 ${inviteLink}`, "success")
+        }, (err) => {
+            swal("異常", "複製失敗", "error")
+        })
+    }
+
+    useEffect(() => {
+        if (props.defaultAccount !== null) {
+            generateLink(props.defaultAccount);
+        }
+    }, [props.defaultAccount])
+
     return (
         <div className="wpo-work-area section-padding" id="experience">
             <div className="container">
-                <SectionTitle Title={'My Work Experience'} />
+                <SectionTitle Title={'我的邀請連結'} />
                 <div className="wpo-work-wrap">
                     {Expriences.map((exprience, exp) => (
                         <div className="wpo-work-item" key={exp}>
                             <ul>
                                 <li className="date">{exprience.date}</li>
-                                <li className="logo"><img src={exprience.logo} alt="" /></li>
-                                <li className="position">{exprience.position} <span>{exprience.companyName} <span>{exprience.workFrom}</span></span></li>
-                                <li className="link">
-                                    <Link href="/">
-                                        <a>Go to website</a>
-                                    </Link>
+                                <li style={{ wordWrap: 'break-word', maxWidth: '80vw' }}>{inviteLink}</li>
+                                <li className="link" onClick={copyLink}>
+                                    <a>複製連結</a>
                                 </li>
                             </ul>
                         </div>

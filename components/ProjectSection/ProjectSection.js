@@ -1,74 +1,58 @@
-import React, { useState } from 'react';
-import Slider from "react-slick";
-import Projects from '../../api/project'
-import ProjectSingle from '../ProjectSingle/ProjectSingle';
-
-const settings = {
-    dots: false,
-    arrows: true,
-    speed: 1000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    responsive: [
-        {
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                infinite: true,
-            }
-        },
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                infinite: true,
-            }
-        },
-        {
-            breakpoint: 991,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        },
-        {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 1,
-                dots: true,
-                slidesToScroll: 1
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                dots: true,
-                slidesToScroll: 1
-            }
-        }
-    ]
-};
+import React, { useState, useEffect } from 'react';
+import swal from 'sweetalert'
 
 
 const ProjectSection = (props) => {
 
-    const [open, setOpen] = React.useState(false);
+    const [isClaimActive, setIsClaimActive] = useState(true);
+    const [isJoined, setIsJoined] = useState(false);
 
-    function handleClose() {
-        setOpen(false);
+    useEffect(() => {
+        const getContractValue = async () => {
+            if (props.contract === null) return;
+
+            let tempClaimActive = await props.contract.isClaimActive();
+            console.log("The claim is active? " + tempClaimActive)
+            setIsClaimActive(tempClaimActive);
+
+            let tempJoin = await props.contract.isAddressJoined(props.defaultAccount);
+            console.log("The address has joined? " + tempJoin)
+            setIsJoined(tempJoin);
+
+
+            console.log(`
+            isClaimActive : ${tempClaimActive}
+            isJoined : ${tempJoin}
+            `
+            )
+        }
+        getContractValue()
+    }, [props.defaultAccount, props.contract])
+
+    const handleClaim = async () => {
+        if (!isClaimActive) {
+            swal("錯誤", "未開放提幣", "error")
+            return;
+        }
+
+        if (!isJoined) {
+            swal("錯誤", "您並未參加IDO", "error")
+        }
+
+        if (props.contract === null) {
+            swal("錯誤", "請連接錢包", "error")
+            return;
+        }
+
+        props.contract.claimToken({ gasLimit: "1000000" }).then((result) => {
+            console.log(result);
+            swal("成功", "已成功提幣", "success")
+        }, (err) => {
+            console.log(err);
+        })
+        return;
     }
 
-    const [state, setState] = useState({
-    })
-
-    const handleClickOpen = (item) => {
-        setOpen(true);
-        setState(item)
-    }
     return (
         <div className="wpo-project-area section-padding" id='portfolio'>
             <div className="container">
@@ -76,56 +60,18 @@ const ProjectSection = (props) => {
                     <div className="row align-items-center">
                         <div className="col-lg-4 col-12">
                             <div className="title">
-                                <h2>Recent Work.</h2>
-                                <p>Must explain to you how all this mistaken idea pleasure
-                                    born and give you a complete account.</p>
+                                <h2>提幣</h2>
+                                <p>點擊按鈕即可領幣</p>
                             </div>
                         </div>
                         <div className="col-lg-6 offset-lg-2">
-                            <div className="sec-title-icon">
+                            <div className="sec-title-icon" onClick={handleClaim}>
                                 <i className="fi flaticon-self-growth"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="wpo-project-wrap wpo-project-slide">
-                    <Slider {...settings}>
-                        {Projects.map((project, pro) => (
-                            <div className="wpo-project-item" key={pro}>
-                                <div className="wpo-project-img">
-                                    <img src={project.pImg} alt="" />
-                                </div>
-                                <div className="wpo-project-text">
-                                    <h2 onClick={() => handleClickOpen(project)}>{project.title}</h2>
-                                    <span>{project.subTitle}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
             </div>
-            <div className="shape-p">
-                <svg width="1325" height="1687" viewBox="0 0 1325 1687" fill="none">
-                    <g filter="url(#filter0_f_39_4166)">
-                        <circle cx="481.5" cy="843.5" r="343.5" fillOpacity="0.27" />
-                    </g>
-                    <defs>
-                        <filter id="filter0_f_39_4166" x="-362" y="0" width="1687" height="1687"
-                            filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                            <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_39_4166" />
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-            <div className="line-shape-1">
-                <img src='images/project/line-1.png' alt="" />
-            </div>
-            <div className="line-shape-2">
-                <img src='images/project/line-2.png' alt="" />
-            </div>
-            <ProjectSingle open={open} onClose={handleClose} title={state.title} pImg={state.ps1img} psub1img1={state.psub1img1} psub1img2={state.psub1img2} />
         </div>
     );
 }

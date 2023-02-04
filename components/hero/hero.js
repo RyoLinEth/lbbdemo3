@@ -12,18 +12,17 @@ const Hero = () => {
                             <div className="col-xl-6 col-lg-6 col-12">
                                 <div className="wpo-static-hero-inner">
                                     <div data-swiper-parallax="300" className="slide-title">
-                                        <h2><span>Hello,</span>
-                                            I am Ronald.</h2>
+                                        <h2><span>您好,</span>
+                                            歡迎來到LBB</h2>
                                     </div>
                                     <div data-swiper-parallax="300" className="slide-sub-title">
-                                        <h5>UI/UX Designer</h5>
+                                        <h5>IDO</h5>
                                     </div>
                                     <div data-swiper-parallax="400" className="slide-text">
-                                        <p>Must explain to how all this mistaken idea denouncing pleasure pain
-                                            the system and expound the actua.</p>
+                                        <p>使用 50 / 100 USDT 參加綠寶寶 IDO</p>
                                     </div>
                                     <div className="clearfix"></div>
-                                    <div className="slide-btn"><Link className="theme-btn" to="contact" spy={true} smooth={true}  duration={500}>Hire Me</Link></div>
+                                    <div className="slide-btn"><Link className="theme-btn" to="about" spy={true} smooth={true}  duration={500}>現在參加</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -33,19 +32,7 @@ const Hero = () => {
             <div className="static-hero-right">
                 <div className="static-hero-img">
                     <div className="static-hero-img-inner">
-                        <img src='images/slider/1.jpg' alt="" />
-                        <div className="icon-1 floating-item"><img src='images/icon/photoshop.svg' alt="" /></div>
-                        <div className="icon-2 floating-item"><img src='images/icon/illustrator.svg' alt="" /></div>
-                        <div className="icon-3 floating-item"><img src='images/icon/diamond.svg' alt="" /></div>
-                        <div className="project floating-item">
-                            <div className="icon">
-                                <i className="fi flaticon-verified"></i>
-                            </div>
-                            <div className="p-text">
-                                <h3><span data-count="1500">1500</span>+</h3>
-                                <p>Complete Project</p>
-                            </div>
-                        </div>
+                        <img src='images/slider/LBB.png' alt="" />
                     </div>
                 </div>
             </div>

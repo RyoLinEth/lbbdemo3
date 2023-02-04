@@ -1,32 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/List";
-import Collapse from "@material-ui/core/Collapse";
 import { Link } from 'react-scroll'
-import NavLink from 'next/link'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const menus = [
     {
         id: 1,
         title: 'Home',
         link: 'home',
-        submenu: [
-            {
-                id: 11,
-                title: 'Home style 1',
-                link: '/'
-            },
-            {
-                id: 12,
-                title: 'Home style 2',
-                link: '/home2'
-            },
-            {
-                id: 13,
-                title: 'Home style 3',
-                link: '/home3'
-            }
-        ]
     },
 
 ]
@@ -49,47 +29,18 @@ const MobileMenu = () => {
                 </div>
 
                 <ul className="responsivemenu">
-                    {menus.map((item, mn) => {
-                        return (
-                            <ListItem className={item.id === openId ? 'active' : null} key={mn}>
-                                {item.submenu ?
-                                    <Fragment>
-                                        <p onClick={() => setOpenId(item.id === openId ? 0 : item.id)}>{item.title}
-                                            <i className={item.id === openId ? 'fa fa-angle-up' : 'fa fa-angle-down'}></i>
-                                        </p>
-                                        <Collapse in={item.id === openId} timeout="auto" unmountOnExit>
-                                            <List className="subMenu">
-                                                <Fragment>
-                                                    {item.submenu.map((submenu, i) => {
-                                                        return (
-                                                            <ListItem key={i}>
-                                                                <NavLink onClick={ClickHandler} className="active"
-                                                                    href={submenu.link}>{submenu.title}</NavLink>
-                                                            </ListItem>
-                                                        )
-                                                    })}
-                                                </Fragment>
-                                            </List>
-                                        </Collapse>
-                                    </Fragment>
-                                    : <NavLink className="active"
-                                        href={item.link}>{item.title}</NavLink>
-                                }
-                            </ListItem>
-                        )
-                    })}
-                    <li>
-                        <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>About</Link>
-                    </li>
-                    <li><Link activeClass="active" to="service" spy={true} smooth={true} duration={500}>Service</Link></li>
-                    <li>
-                        <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500} onClick={ClickHandler}>Portfolio</Link>
+                    <li className="menu-item-has-children">
+                        <AnchorLink href='#scrool'>Home</AnchorLink>
                     </li>
                     <li>
-                        <Link activeClass="active" to="contact" spy={true} smooth={true} duration={500}>Contact</Link>
+                        <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>IDO</Link>
+                    </li>
+                    <li><Link activeClass="active" to="service" spy={true} smooth={true} duration={500}>關於LBB</Link></li>
+                    <li>
+                        <Link activeClass="active" to="experience" spy={true} smooth={true} duration={500}>邀請連結</Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="blog" spy={true} smooth={true} duration={500}>Blog</Link>
+                        <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500} onClick={ClickHandler}>領幣</Link>
                     </li>
                 </ul>
 

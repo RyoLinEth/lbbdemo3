@@ -27,7 +27,7 @@ const Header = (props) => {
                             <div className="col-lg-2 col-md-6 col-6">
                                 <div className="navbar-header">
                                     <Link onClick={ClickHandler} className="navbar-brand site-logo" to="/">
-                                        <img src="images/LSJF2.png" alt="" />
+                                        <img src="images/LBBLogo.png" alt="" />
                                     </Link>
                                 </div>
                             </div>
@@ -48,15 +48,7 @@ const Header = (props) => {
                                         <li>
                                             <Link activeClass="active" to="portfolio" spy={true} smooth={true} duration={500}>領幣</Link>
                                         </li>
-                                        {/* 
-                                        <li>
-                                            <Link activeClass="active" to="contact" spy={true} smooth={true} duration={500}>Contact</Link>
-                                        </li>
-                                        <li>
-                                            <Link activeClass="active" to="blog" spy={true} smooth={true} duration={500}>Blog</Link>
-                                        </li> */}
                                     </ul>
-
                                 </div>
                             </div>
                             <WalletConnect defaultAccountChange={handleDefaultAccount} />
