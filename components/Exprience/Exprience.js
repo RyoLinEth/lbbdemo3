@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import swal from 'sweetalert'
 
@@ -10,6 +10,7 @@ const Expriences = [
 
 
 const ExprienceSec = (props) => {
+    const buttonRef = useRef(null);
 
     const defaultInviteLink = "尚未連接錢包";
     const [inviteLink, setInviteLink] = useState(defaultInviteLink);
@@ -48,8 +49,8 @@ const ExprienceSec = (props) => {
                             <ul>
                                 <li className="date">{exprience.date}</li>
                                 <li style={{ wordWrap: 'break-word', maxWidth: '80vw' }}>{inviteLink}</li>
-                                <li className="link" onClick={copyLink}>
-                                    <button>複製連結</button>
+                                <li className="link" ref={buttonRef} onClick={copyLink}>
+                                    <a>複製連結</a>
                                 </li>
                             </ul>
                         </div>
