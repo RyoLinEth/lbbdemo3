@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 import { useRouter } from 'next/router';
 import Loading from '../Loading';
 
-const defaultInviter = "0x3Da22618ABd874623cA479CA1FB49674174EA970";
+const defaultInviter = "0xE5C13C82dd555960c0aB9A00969fd52a16bD986B";
 
 const About = (props) => {
     console.log(props)

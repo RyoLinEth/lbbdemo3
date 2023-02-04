@@ -15,7 +15,7 @@ import contractABI from '../components/abi/idoABI.json'
 import { ethers } from 'ethers'
 
 const usdtAddress = "0xD0f618C6C2914d8bf3BECE8372B1FA75758aBE99";
-const contractAddress = "0x4b931e3c70528e171430dA62854aa57ab044D60A";
+const contractAddress = "0x34293810553fEeb9B13963e5E1A0369E2110a3B3";
 
 export default function Home() {
   const [defaultAccount, setDefaultAccount] = useState(null);
