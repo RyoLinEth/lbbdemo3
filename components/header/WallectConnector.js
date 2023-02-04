@@ -2,30 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import swal from 'sweetalert'
 
-const WalletConnect = ({ defaultAccountChange, language }) => {
+const WalletConnect = ({ defaultAccountChange, isCorrectNetwork }) => {
     const [defaultAccount, setDefaultAccount] = useState(null)
     const [correctNetwork, setCorrectNetwork] = useState(null);
     const [connectButtonText, setConnectButtonText] = useState("連接錢包")
-
-    const ChineseConnect = "連接錢包"
-    const EnglishConnect = "Connect Wallet"
-    const setLanguage = () => {
-        if (language !== "中") {
-            if (connectButtonText === ChineseConnect) {
-                setConnectButtonText(EnglishConnect)
-                return;
-            }
-        }
-        else
-            if (connectButtonText === EnglishConnect) {
-                setConnectButtonText(ChineseConnect)
-                return;
-            }
-    }
-
-    useEffect(() => {
-        setLanguage()
-    }, [language])
 
     useEffect(() => {
         changingAccount();
@@ -68,8 +48,10 @@ const WalletConnect = ({ defaultAccountChange, language }) => {
         if (chainId !== netWorkID) {
             // setCorrectNetwork(network => network = false)
             setCorrectNetwork(false)
+            isCorrectNetwork(false)
             swal("Error", "Please Connect to the Correct Network", "error")
         } else {
+            isCorrectNetwork(true)
             setCorrectNetwork(true)
         }
     }

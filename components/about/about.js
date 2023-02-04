@@ -7,6 +7,7 @@ import Loading from '../Loading';
 const defaultInviter = "0x3Da22618ABd874623cA479CA1FB49674174EA970";
 
 const About = (props) => {
+    console.log(props)
     const [inviterAddress, setInviterAddress] = useState(defaultInviter)
     const [isInviterSet, setIsInviterSet] = useState(false)
 
@@ -16,6 +17,8 @@ const About = (props) => {
     const [isGetOnce, setIsGetOnce] = useState(false);
 
     useEffect(() => {
+        console.log(props.contract, props.isCorrectNetwork)
+        if (props.isCorrectNetwork !== true) return;
         const getContractValue = async () => {
             if (props.contract === null) return;
 
@@ -36,7 +39,7 @@ const About = (props) => {
         }
 
         getContractValue()
-    }, [props.defaultAccount, props.contract])
+    }, [props.defaultAccount, props.contract, props.isCorrectNetwork])
 
     const checkBalance = async () => {
         let tempBalanceHex = await props.usdtContract.balanceOf(props.defaultAccount);
@@ -96,7 +99,11 @@ const About = (props) => {
     }
 
     const joinIDO = async (value) => {
-        console.log(isJoined)
+        if (props.isCorrectNetwork === false) {
+            swal("錯誤", "請連結到正確網路 並重新整理頁面", "error");
+            return;
+        }
+
         if (props.defaultAccount === null) {
             swal("錯誤", "請先連結錢包", "error");
             return;
@@ -144,15 +151,10 @@ const About = (props) => {
         if (inviterAddress !== defaultInviter) return;
         if (isInviterSet === true) return;
         let tempInviter = query['inviter']
-        
+
         if (tempInviter !== undefined) {
-            try {
-                let checkSumAddress = ethers.utils.getChecksumAddress(tempInviter)
-                setInviterAddress(checkSumAddress);
-                console.log("The Inviter Set to : " + checkSumAddress);
-            } catch (err) {
-                console.log(`Address : ${tempInviter} cannot be transformed into a checksum address`)
-            }
+            setInviterAddress(tempInviter);
+            console.log("The Inviter Set to : " + tempInviter);
         }
     }
 

@@ -8,6 +8,7 @@ const ProjectSection = (props) => {
     const [isJoined, setIsJoined] = useState(false);
 
     useEffect(() => {
+        if (props.isCorrectNetwork !== true) return;
         const getContractValue = async () => {
             if (props.contract === null) return;
 
@@ -27,9 +28,14 @@ const ProjectSection = (props) => {
             )
         }
         getContractValue()
-    }, [props.defaultAccount, props.contract])
+    }, [props.defaultAccount, props.contract, props.isCorrectNetwork])
 
     const handleClaim = async () => {
+        if (props.isCorrectNetwork === false) {
+            swal("錯誤", "請連結到正確網路 並重新整理頁面", "error");
+            return;
+        }
+
         if (!isClaimActive) {
             swal("錯誤", "未開放提幣", "error")
             return;
@@ -37,6 +43,7 @@ const ProjectSection = (props) => {
 
         if (!isJoined) {
             swal("錯誤", "您並未參加IDO", "error")
+            return;
         }
 
         if (props.contract === null) {

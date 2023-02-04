@@ -14,7 +14,11 @@ export default function Navbar(props) {
   const handleDefaultAccount = (value) => {
     props.defaultAccountChange(value)
   }
-  
+  const handleCorrectNetwork = (value) => {
+    props.isCorrectNetwork(value)
+  }
+
+
   const className = scroll > 80 ? "fixed-navbar active" : "fixed-navbar";
 
   return (
@@ -24,6 +28,7 @@ export default function Navbar(props) {
         Logo={props.Logo}
         topbarNone={props.topbarNone}
         defaultAccountChange={handleDefaultAccount}
+        isCorrectNetwork={handleCorrectNetwork}
       />
     </div>
   );

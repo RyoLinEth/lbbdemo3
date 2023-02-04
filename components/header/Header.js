@@ -10,6 +10,9 @@ const Header = (props) => {
     const handleDefaultAccount = (value) => {
         props.defaultAccountChange(value)
     }
+    const handleCorrectNetwork = (value) => {
+        props.isCorrectNetwork(value)
+    }
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
@@ -51,7 +54,9 @@ const Header = (props) => {
                                     </ul>
                                 </div>
                             </div>
-                            <WalletConnect defaultAccountChange={handleDefaultAccount} />
+                            <WalletConnect
+                                defaultAccountChange={handleDefaultAccount}
+                                isCorrectNetwork={handleCorrectNetwork}/>
                         </div>
                     </div>
                 </nav>

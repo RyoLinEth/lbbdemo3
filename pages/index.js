@@ -19,6 +19,7 @@ const contractAddress = "0x4b931e3c70528e171430dA62854aa57ab044D60A";
 
 export default function Home() {
   const [defaultAccount, setDefaultAccount] = useState(null);
+  const [isCorrectNetwork, setIsCorrectNetwork] = useState(null);
 
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
@@ -27,6 +28,10 @@ export default function Home() {
 
   const handleDefaultAccount = (value) => {
     setDefaultAccount(value);
+  }
+  
+  const handleCorrectNetwork = (value) => {
+    setIsCorrectNetwork(value)
   }
 
   const updateEthers = async () => {
@@ -44,10 +49,11 @@ export default function Home() {
   }
 
   useEffect(() => {
+    if (isCorrectNetwork === false) return;
     console.log("Change Account to : " + defaultAccount)
     if (defaultAccount !== null)
       updateEthers()
-  }, [defaultAccount])
+  }, [defaultAccount, isCorrectNetwork])
 
   return (
     <div id='scrool'>
@@ -56,6 +62,7 @@ export default function Home() {
         <div className="br-app">
           <Navbar
             defaultAccountChange={handleDefaultAccount}
+            isCorrectNetwork={handleCorrectNetwork}
           />
           <Hero />
           <About
@@ -64,6 +71,7 @@ export default function Home() {
             usdtContract={usdtContract}
             provider={provider}
             signer={signer}
+            isCorrectNetwork={isCorrectNetwork}
           />
           <ServiceSection />
           <ExprienceSec defaultAccount={defaultAccount} />
@@ -73,6 +81,7 @@ export default function Home() {
             usdtContract={usdtContract}
             provider={provider}
             signer={signer} 
+            isCorrectNetwork={isCorrectNetwork}
           />
           <Footer />
           <Scrollbar />
