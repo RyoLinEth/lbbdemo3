@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import swal from 'sweetalert'
 
@@ -10,8 +10,6 @@ const Expriences = [
 
 
 const ExprienceSec = (props) => {
-    const buttonRef = useRef(null);
-
     const defaultInviteLink = "尚未連接錢包";
     const [inviteLink, setInviteLink] = useState(defaultInviteLink);
 
@@ -20,6 +18,7 @@ const ExprienceSec = (props) => {
         setInviteLink(tempLink);
     }
 
+    
     const copyLink = () => {
         if (inviteLink === defaultInviteLink) {
             swal("錯誤", "尚未連結錢包", "error")
@@ -28,8 +27,7 @@ const ExprienceSec = (props) => {
         navigator.clipboard.writeText(inviteLink).then(() => {
             swal("成功", `已成功複製連結 ${inviteLink}`, "success")
         }, (err) => {
-            alert(err);
-            // swal("異常", "複製失敗", "error")
+            swal("異常", "複製失敗 請手動複製連結", "error")
         })
     }
 
@@ -49,7 +47,7 @@ const ExprienceSec = (props) => {
                             <ul>
                                 <li className="date">{exprience.date}</li>
                                 <li style={{ wordWrap: 'break-word', maxWidth: '80vw' }}>{inviteLink}</li>
-                                <li className="link" ref={buttonRef} onClick={copyLink}>
+                                <li className="link" onClick={copyLink}>
                                     <a>複製連結</a>
                                 </li>
                             </ul>
