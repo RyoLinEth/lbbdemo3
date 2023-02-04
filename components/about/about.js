@@ -124,10 +124,9 @@ const About = (props) => {
         }
 
         let result = await checkAllowance()
-        const approveAmount = ethers.utils.toWei(`${value}`, 'ether');
+        const approveAmount = ethers.utils.parseEther(value.toString());
 
         if (result >= value) {
-
             console.log(`Allowance ${result}`)
             console.log(`ApproveAmount ${approveAmount}`)
             console.log(`Allowance is enought for ${value} USDT`)
