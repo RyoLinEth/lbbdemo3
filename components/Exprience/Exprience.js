@@ -27,7 +27,8 @@ const ExprienceSec = (props) => {
         navigator.clipboard.writeText(inviteLink).then(() => {
             swal("成功", `已成功複製連結 ${inviteLink}`, "success")
         }, (err) => {
-            swal("異常", "複製失敗", "error")
+            alert(err);
+            // swal("異常", "複製失敗", "error")
         })
     }
 
