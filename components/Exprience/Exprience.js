@@ -49,7 +49,7 @@ const ExprienceSec = (props) => {
                                 <li className="date">{exprience.date}</li>
                                 <li style={{ wordWrap: 'break-word', maxWidth: '80vw' }}>{inviteLink}</li>
                                 <li className="link" onClick={copyLink}>
-                                    <a>複製連結</a>
+                                    <button>複製連結</button>
                                 </li>
                             </ul>
                         </div>
