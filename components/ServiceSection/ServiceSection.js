@@ -32,7 +32,7 @@ const ServiceSection = (props) => {
     return (
         <div className={`wpo-service-area section-padding ${props.sClass}`} id='service'>
             <div className="container">
-                <SectionTitle Title={'关于 LBB'} />
+                <SectionTitle Title={'About Paofu'} />
                 <div className="wpo-service-wrap">
                     <Nav tabs>
                         <div style={{display:'flex', flexDirection:'row'}}>
@@ -42,7 +42,7 @@ const ServiceSection = (props) => {
                                     style={{maxWidth:'200px'}}
                                     onClick={() => { toggle('1'); }}
                                 >
-                                    代币机制
+                                    Token
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -51,7 +51,7 @@ const ServiceSection = (props) => {
                                     style={{maxWidth:'200px'}}
                                     onClick={() => { toggle('2'); }}
                                 >
-                                    IDO返佣
+                                    IDO
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -60,7 +60,7 @@ const ServiceSection = (props) => {
                                     style={{maxWidth:'200px'}}
                                     onClick={() => { toggle('3'); }}
                                 >
-                                    IDO内容
+                                    Unlock
                                 </NavLink>
                             </NavItem>
                         </div>

@@ -176,45 +176,45 @@ const About = (props) => {
                         <div className="wpo-about-exprience-wrap">
                             <div className="wpo-about-exprience">
                                 <h2>IDO</h2>
-                                <span>参与IDO</span>
+                                <span>Participate IDO</span>
                             </div>
                             <div className="client">
                                 <h3><span data-count="100">100</span>%</h3>
-                                <p>智能合约<br />三代返佣</p>
+                                <p>Smart<br />Contract</p>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6 offset-lg-1 col-md-12 col-sm-12">
                         <div className="wpo-about-content">
                             <div className="wpo-about-title">
-                                <h2>LBB - 三代返佣</h2><br />
+                                <h2>Paofu </h2>
+                                <hr />
                             </div>
-
-                            <h5>三代IDO USDT实时返佣</h5>
+                            <h5>Token Vesting Mechanism</h5>
                             <div className="wpo-about-funfact">
-                                <div style={{ display: "flex", flexDirection: "row" }}>
+                                <div style={{ display: "flex", flexDirection: "row", flexWrap: 'wrap', justifyContent: 'center' }}>
                                     <div className="grid">
                                         <div className="grid-inner">
-                                            <h3><span data-count="98">6</span>%</h3>
-                                            <p>一代</p>
+                                            <h3><span data-count="98">1</span> USDT</h3>
+                                            <p>Unlocked</p>
                                         </div>
                                     </div>
                                     <div className="grid">
                                         <div className="grid-inner">
-                                            <h3><span data-count="92">2</span>%</h3>
-                                            <p>二代</p>
+                                            <h3><span data-count="92">100</span> USDT</h3>
+                                            <p>Locked</p>
                                         </div>
                                     </div>
                                     <div className="grid">
                                         <div className="grid-inner">
-                                            <h3><span data-count="88">1</span>%</h3>
-                                            <p>三代</p>
+                                            <h3><span data-count="88">101</span> USDT</h3>
+                                            <p>Total</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <h5>IDO额度 50 / 100 USDT</h5>
+                            <h5>IDO With 50 / 100 USDT</h5>
                             <div className="wpo-about-funfact">
                                 <div className="grid" style={{ cursor: "pointer" }}>
                                     <div className="grid-inner" onClick={() => joinIDO(50)}>
@@ -229,7 +229,7 @@ const About = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <h5 style={{ color: 'red' }}>** 点击上方按钮直接参加IDO **</h5>
+                            <h5 style={{ color: 'red' }}>** Participate Paofu IDO With The Button Above **</h5>
                         </div>
                     </div>
                 </div>

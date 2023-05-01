@@ -12,17 +12,17 @@ const Hero = () => {
                             <div className="col-xl-6 col-lg-6 col-12">
                                 <div className="wpo-static-hero-inner">
                                     <div data-swiper-parallax="300" className="slide-title">
-                                        <h2><span>您好,</span>
-                                        欢迎来到LBB</h2>
+                                        <h2><span>Welcome to</span>
+                                        Paofu</h2>
                                     </div>
                                     <div data-swiper-parallax="300" className="slide-sub-title">
                                         <h5>IDO</h5>
                                     </div>
                                     <div data-swiper-parallax="400" className="slide-text">
-                                        <p>使用 50 / 100 USDT 参加绿宝宝 IDO</p>
+                                        <p>Join Paofu IDO With USDT</p>
                                     </div>
                                     <div className="clearfix"></div>
-                                    <div className="slide-btn"><Link className="theme-btn" to="about" spy={true} smooth={true}  duration={500}>现在参加</Link></div>
+                                    <div className="slide-btn"><Link className="theme-btn" to="about" spy={true} smooth={true}  duration={500}>Join Now</Link></div>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ const Hero = () => {
             <div className="static-hero-right">
                 <div className="static-hero-img">
                     <div className="static-hero-img-inner">
-                        <img src='images/slider/LBBLogo.png' alt="" />
+                        <img alt="LOGO" />
                     </div>
                 </div>
             </div>
